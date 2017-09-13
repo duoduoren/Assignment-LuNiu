@@ -1,4 +1,3 @@
-
 Scenarios: 
 
 1. Hiking
@@ -41,7 +40,6 @@ else
        kevin.searchReachNowAfterAWhileBack
 end 
 
-
 1.2.
 If internet.is available
         Traveller.searchTheGasStation -> gasStation, distance : collection of gasStations
@@ -58,7 +56,6 @@ If internet.is available
                end
 Else
         Traveller.cantsearchTheGasStationOnline
-
 
 1.3.
 If internet.isAvailable
@@ -96,7 +93,6 @@ Else
 traveller.browseInternetAfterAWhileBack                   
  
 
-
 2. Organise a career fair(Suppose you are the organizer)
  2.1. Update company and seat at career fair website
 
@@ -125,8 +121,7 @@ NEU.sendInvitationEmail -> email, invitation, companies : accept
           else
           end
 	  
-
-
+	  
 3. Order Pizza from Pizza Hut
 3.1. Add new item before/after delivery
 
@@ -158,7 +153,6 @@ If PizzaHutWebsite.isNotEmpty
               
          customer.purchaseTheOrder ->order, creditCard, address, pizzaHut : paymentConfirmation
          response = paymentConfirmation    
- 
 Else
 customer.searchInPizzaHutAfterAWhileBack
 
@@ -196,8 +190,7 @@ if publishPage is not empty or homePage!=null
 else
           user.cantPublishCode
 end                         
-      
-           
+                
 
 5. Design a soft-drink/snacks vending machine.
 5.1. customer purchases products at vending machine
@@ -218,8 +211,7 @@ If internet is available
                         end
                         if customer.choosePaymentMethod2 -> cash, vendingMachine: paymentConfirmed
                         response = paymentConfirmed
-                        end
-                     
+                        end           
        else
                 Customer.cantMakePayment
 else
