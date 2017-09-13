@@ -1,0 +1,295 @@
+
+Scenarios: 
+
+1. Hiking
+ 1.1. Rent a ReachNow to drive to mountain rainier on weekends with friends
+ 1.2. On the way, fill the gas
+ 1.3. On the way, eat at restaurant for lunch
+ 1.4. Buy the ticket to get into the park
+ 1.5. Book a hotel or check in the hotel.
+
+Objects and Behaviors:
+
+Car
+	Data : model, seats, ReachNowApp, phone, ReachNowCard, distance, price, time, driver
+	Behavior: findCars, chooseTheCar, unlockTheCar, addDriver, driveTheCar, dropTheCar, Pay
+
+
+Traveller
+
+	Data: name, age, hours, number
+	Behavior: findTheCar, rentTheCar, driveTheCar, pumpGas, eatLunch, buyTicket, hikeInThePark, bookHotel, checkIn, CheckOut, dropTheCar
+
+
+Gas
+
+	Data: gasStation, internet, distance
+	Behavior: find, checkIfOpen, fill
+
+
+Ticket
+
+	Data: number, type, price, coupon, hours
+	Behavior: checkOnLine, buy 
+
+
+Sequence of Flow:
+carRentalService ReachNow;
+driver Kevin;
+passenger 4;
+carModel BMWX1;
+
+1.1.
+kevin.searchInReachNow -> ReachNow: available
+
+If( available is true )
+       kevin.searchReachNow -> ReachNow, BMWX1 -> Collection of parkingLots with BMWX1: ParkingLots
+       //kevin.findsDesirableCarInFirstParkingLot -> Collection of BMWX1: cars
+       parkingLotNumber = 1
+       Loop
+               if kevin.wantToSeeTheCarVdeo 
+	       kevin.clickOnTheVdeo -> ReachNow, Car, stream : video
+	       ReachNow.playTheVideo -> stream, video
+	       end	       
+               Kevin.findDesirableCar -> ReachNow, year, milage, location : car
+               BMWX1 = car; 
+               else
+                        parkingLotNumber = parkingLotNumber + 1
+
+               end
+
+       End
+       BMWX1 = car
+       if BMWX1 is working
+                Kevin.unlockTheCar -> BMWX1, phone or ReachNowCard, ReachNow, time, location : unlockConfirmation
+                ReachNow.response = unlockConfirmation
+       else, 
+       Kevin.cantUnlockTheCar
+else
+       kevin.searchReachNowAfterAWhileBack
+end 
+
+
+1.2.
+If internet.is available
+        Traveller.searchTheGasStation -> gasStation, distance : collection of gasStations
+               gasStationNumber = 1;
+               Loop
+                      if traveller.findNoGasStation
+                              break
+                      end
+                      If gasStation is open
+                              break
+                      Else
+                              gasStationNumber = gasStationNumber + 1
+                      end
+               end
+Else
+        Traveller.cantsearchTheGasStationOnline
+
+
+
+1.4.
+If internet.isAvailable
+          Traveller.searchTicketsOnline -> internet, questions : collection of ticketWebsites
+          pageNumber = 1;
+          Loop
+                 if.travellerFindNoTicketWebsite
+                           break
+                 end
+                 traveller.findTicketWebsiteInAPage -> internet, ticketWebsite, pageNumber : ticketWebstie
+                 mountRainierWebsite = ticketWebstie;
+                 If mountRainierWebsite is not empty
+                            break
+                 else
+                            pageNumber = pageNumber + 1
+                 end
+          end
+          mountRainer = ticketWebsite
+          If mountRainer is not empty or mountRainer!=null
+                  traveller.chooseTicket -> ticket, ticketType, date, time, age : price
+                  response = price  
+                       If traveller.wantsToAddCoupon and mountRainer.acceptsCoupon
+                              traveller.typeInCouponCode -> CouponCode : authorized
+                                     If authorized is true
+                                              mountRainier.applyTheCoupon -> coupon : price
+                                     else
+                                     end 
+                       If traveller.wantToQuitThePurchase and purchaseIsNotFinished
+                              traveller.quitThePurchase -> status : logout
+                              response = logout                            
+                       end
+          Else
+          End
+Else
+traveller.browseInternetAfterAWhileBack                   
+ 
+
+
+2. Organise a career fair(Suppose you are the organizer)
+ 2.1. Update company and seat at career fair website
+ 2.2. Provide complimentary lunch for company representatives
+
+Organizer NEU
+Website 2017CareerFair
+Food Traditional Buffet
+
+2.1.
+NEU.sendInvitationEmail -> email, invitation, companies : accept
+          if accept is true
+                    company.chooseSeat -> company, seat, 2017CareerFair : collection of seats
+                           pageNumber = 1
+                           loop
+                                  if company.findNoSeat
+                                           Break
+                                  end
+                                  Company.findDesirableSeat -> seatNumber, 2017CareerFair : seatNumber
+                                  if seat is not occupied
+                                           company.selectSeat -> seatNumber, company : seatConfirmation             
+                                           response: seatConfirmation
+                                                          break
+                                  else
+                                           pageNumber = pageNumber + 1
+                                  end
+                           end 
+ 
+          else
+          end
+2.2.
+NEU.searchFoodProvider -> priceRange, foodType : collection of companies
+          Traditional Buffet = foodType
+          if company
+          
+   
+
+
+
+3. Order Pizza from Pizza Hut
+3.1. Add new item before/after delivery
+
+Delivery time 7:30pm
+Pizza BBQ Chicken Pizza
+
+If PizzaHutWebsite.isNotEmpty
+	BBQChickenPizza = pizza
+        customer.searchPizza -> BBQChickenPizza, PizzaHut : result
+                 if result is not empty or BBQChiekenPizza!=null
+                          customer.setDeliveryTime -> timeSlot, name, address : collections of timeSlots
+                          7:30pm = deliveryTime
+                          
+                 else  customer.cantBuyPizza
+                 End
+         
+         If customer wants to add new item after payment
+                 Customer.addNewItem -> item, orderNumber, customerID, pizzaHut : newItem
+                 if adding time <= 7:30pm
+                           Customer.setNewDeliveryTime -> deliveryTime, address, order : order
+                           response = order
+                 end
+                 if adding time > 7:30pm
+                           Customer.setNewDeliveryTime -> deliveryTime, address, order : NewOrder 
+                           Response = NewOrder
+                 end
+         else,
+         end         
+              
+         customer.purchaseTheOrder ->order, creditCard, address, pizzaHut : paymentConfirmation
+         response = paymentConfirmation    
+ 
+Else
+customer.searchInPizzaHutAfterAWhileBack
+
+
+4. Design a code sharing platform (eg: Github).
+4.1. User login
+4.2. user publish code
+
+Code sharing platform WeCode
+
+4.1.
+user.loginToWeCode -> password, username, email: authorize
+pageNumber = 1         
+          loop 
+                if authorize is true
+                         User.logIntoHomepage -> WeCode, page : homePage
+                                 Break
+                else
+                                 PageNumber = 1
+                end
+          end
+
+4.2.
+publishPage = homePage
+if publishPage is not empty or homePage!=null
+          user.uploadeCode -> code, homepage, weCode -> uploaded
+                   pageNumber = 1
+                   loop
+                          if uploaded is true
+                                  break
+                          else
+                                  pageNumber = 1
+                          end
+                   end 
+else
+          user.cantPublishCode
+end                         
+      
+           
+
+5. Design a soft-drink/snacks vending machine.
+5.1. customer purchases products at vending machine
+5.2. Stock replenishment
+
+5.1.
+If internet is available
+       customer.typeInProductNumber -> ProductNumber : valid
+       if valid is true
+                Customer.makePayment -> price, creditCard, cash : paymentMethod
+                        paymentMethod1 = payByCreditCard;
+                        paymentMethod2 = payByCash;
+                        if customer.choosePaymentMethod1 -> creditCard, bank : verified
+                                   if verified is true,
+                                           vendingMachine.printReceipt -> receipt : paymentConfirmed
+                                   else
+                                           vendingMachine.rejectPayment -> reject: paymentFailed
+                                   end
+                        end
+                        if customer.choosePaymentMethod2 -> cash, vendingMachine: paymentConfirmed
+                        response = paymentConfirmed
+                        end
+                     
+       else
+                Customer.cantMakePayment
+else
+       customer.useVendingMachineLater
+
+5.2.
+vendingMachine.checkStock -> stock, categories, product : collections of productCategories
+       if vendingMachine.findNoCategory
+if stockout is true
+       staff.refillStock -> product, vendingMachine : refilled
+               if refillNumber >=1
+                        VendingMachine.resumeWork -> product, vendingMachine : working
+               else
+               end
+else
+       staff.refillStockLater
+
+
+
+
+Tips : 
+1. You may go as deep as you want , like the first scenario will be an example, you can simplify it or make it more complex.
+2. Use pseudo code. This assignment has nothing to do with the real code, we want you to experience what is object oriented language. 
+
+
+Success criteria:
+1. Be able to parsing the daily activities into some small block and learn the way to design things. Different may have different ways to parse the same scenario. So make your own copy. 
+
+2. Be able to make progress according to reviews from teachers and TA. 
+
+Requirement:
+
+1. Deadline is Sep, 15th. If you encounter any problem to meet this deadline, please contact TA or Professor directly.
+
+2. Individual work, not team project. But can have discuss with other classmates. 
