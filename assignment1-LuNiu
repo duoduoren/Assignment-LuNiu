@@ -4,35 +4,7 @@ Scenarios:
 1. Hiking
  1.1. Rent a ReachNow to drive to mountain rainier on weekends with friends
  1.2. On the way, fill the gas
- 1.3. On the way, eat at restaurant for lunch
- 1.4. Buy the ticket to get into the park
- 1.5. Book a hotel or check in the hotel.
-
-Objects and Behaviors:
-
-Car
-	Data : model, seats, ReachNowApp, phone, ReachNowCard, distance, price, time, driver
-	Behavior: findCars, chooseTheCar, unlockTheCar, addDriver, driveTheCar, dropTheCar, Pay
-
-
-Traveller
-
-	Data: name, age, hours, number
-	Behavior: findTheCar, rentTheCar, driveTheCar, pumpGas, eatLunch, buyTicket, hikeInThePark, bookHotel, checkIn, CheckOut, dropTheCar
-
-
-Gas
-
-	Data: gasStation, internet, distance
-	Behavior: find, checkIfOpen, fill
-
-
-Ticket
-
-	Data: number, type, price, coupon, hours
-	Behavior: checkOnLine, buy 
-
-
+ 1.3. Buy the ticket to get into the park
 Sequence of Flow:
 carRentalService ReachNow;
 driver Kevin;
@@ -88,8 +60,7 @@ Else
         Traveller.cantsearchTheGasStationOnline
 
 
-
-1.4.
+1.3.
 If internet.isAvailable
           Traveller.searchTicketsOnline -> internet, questions : collection of ticketWebsites
           pageNumber = 1;
@@ -128,11 +99,9 @@ traveller.browseInternetAfterAWhileBack
 
 2. Organise a career fair(Suppose you are the organizer)
  2.1. Update company and seat at career fair website
- 2.2. Provide complimentary lunch for company representatives
 
 Organizer NEU
 Website 2017CareerFair
-Food Traditional Buffet
 
 2.1.
 NEU.sendInvitationEmail -> email, invitation, companies : accept
@@ -155,13 +124,7 @@ NEU.sendInvitationEmail -> email, invitation, companies : accept
  
           else
           end
-2.2.
-NEU.searchFoodProvider -> priceRange, foodType : collection of companies
-          Traditional Buffet = foodType
-          if company
-          
-   
-
+	  
 
 
 3. Order Pizza from Pizza Hut
@@ -238,7 +201,6 @@ end
 
 5. Design a soft-drink/snacks vending machine.
 5.1. customer purchases products at vending machine
-5.2. Stock replenishment
 
 5.1.
 If internet is available
@@ -262,19 +224,6 @@ If internet is available
                 Customer.cantMakePayment
 else
        customer.useVendingMachineLater
-
-5.2.
-vendingMachine.checkStock -> stock, categories, product : collections of productCategories
-       if vendingMachine.findNoCategory
-if stockout is true
-       staff.refillStock -> product, vendingMachine : refilled
-               if refillNumber >=1
-                        VendingMachine.resumeWork -> product, vendingMachine : working
-               else
-               end
-else
-       staff.refillStockLater
-
 
 
 
