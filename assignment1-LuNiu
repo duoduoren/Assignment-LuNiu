@@ -21,12 +21,16 @@ If( available is true )
                if kevin.wantToSeeTheCarVdeo 
 	       kevin.clickOnTheVdeo -> ReachNow, Car, stream : video
 	       ReachNow.playTheVideo -> stream, video
-	       end	       
-               Kevin.findDesirableCar -> ReachNow, year, milage, location : car
-               BMWX1 = car; 
-               else
-                        parkingLotNumber = parkingLotNumber + 1
-
+	       end
+	       
+               if Kevin.findDesirableCar -> ReachNow, year, milage, location : car
+               BMWX1 = car;
+	       Kevin.selectTheCar ->selectConfirmed
+	       ReachNow -> selectConfirmed
+	       break;
+	       end
+	       
+               parkingLotNumber = parkingLotNumber + 1
                end
 
        End
@@ -34,7 +38,7 @@ If( available is true )
        if BMWX1 is working
                 Kevin.unlockTheCar -> BMWX1, phone or ReachNowCard, ReachNow, time, location : unlockConfirmation
                 ReachNow.response = unlockConfirmation
-       else, 
+       else 
        Kevin.cantUnlockTheCar
 else
        kevin.searchReachNowAfterAWhileBack
@@ -45,14 +49,11 @@ If internet.is available
         Traveller.searchTheGasStation -> gasStation, distance : collection of gasStations
                gasStationNumber = 1;
                Loop
-                      if traveller.findNoGasStation
-                              break
-                      end
                       If gasStation is open
                               break
-                      Else
-                              gasStationNumber = gasStationNumber + 1
                       end
+		      
+                      gasStationNumber = gasStationNumber + 1
                end
 Else
         Traveller.cantsearchTheGasStationOnline
@@ -63,8 +64,9 @@ If internet.isAvailable
           pageNumber = 1;
           Loop
                  if.travellerFindNoTicketWebsite
-                           break
+                           continue
                  end
+		 
                  traveller.findTicketWebsiteInAPage -> internet, ticketWebsite, pageNumber : ticketWebstie
                  mountRainierWebsite = ticketWebstie;
                  If mountRainierWebsite is not empty
