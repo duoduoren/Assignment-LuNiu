@@ -176,7 +176,7 @@ pageNumber = 1
 
 4.2.
 publishPage = homePage
-if publishPage is not empty or homePage!=null
+if publishPage is not empty or publishPage!=null
           user.uploadeCode -> code, homepage, weCode -> uploaded
                    pageNumber = 1
                    loop
