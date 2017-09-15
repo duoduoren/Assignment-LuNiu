@@ -65,7 +65,7 @@ If internet.isAvailable
 	lowestPriceWebsite = null;
 
 	Loop
-	 If ticketWebsite is not empty or ticketWebsite!=null
+	If ticketWebsite is not empty or ticketWebsite!=null
 		 traveller.chooseTicket -> ticket, ticketType, date, time, age : price
 		 response = price 
 
