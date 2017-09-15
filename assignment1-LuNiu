@@ -73,8 +73,8 @@ If internet.isAvailable
 			price = response;
 			lowestPriceWebsite = ticketWebsite;
 		 end
-	 end
-	 pageNumber = pageNumber + 1
+	end
+	pageNumber = pageNumber + 1
 	end
 	  
 	If traveller.wantsToAddCoupon and lowestPriceWebsite.acceptsCoupon
