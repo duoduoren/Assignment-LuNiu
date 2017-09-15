@@ -132,7 +132,7 @@ If PizzaHutWebsite.isNotEmpty
         customer.searchPizza -> BBQChickenPizza, PizzaHut : result
                  if result is not empty or BBQChiekenPizza!=null
                           customer.setDeliveryTime -> timeSlot, name, address : collections of timeSlots
-                          7:30pm = deliveryTime
+                          deliveryTime = 7:30pm
                           
                  else  customer.cantBuyPizza
                  End
