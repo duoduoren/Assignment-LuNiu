@@ -52,7 +52,6 @@ If internet.is available
                       If gasStation is open
                               break
                       end
-		      
                       gasStationNumber = gasStationNumber + 1
                end
 Else
@@ -60,39 +59,37 @@ Else
 
 1.3.
 If internet.isAvailable
-          Traveller.searchTicketsOnline -> internet, questions : collection of ticketWebsites
-          pageNumber = 1;
-          Loop
-                 if.travellerFindNoTicketWebsite
-                           continue
-                 end
-		 
-                 traveller.findTicketWebsiteInAPage -> internet, ticketWebsite, pageNumber : ticketWebstie
-                 mountRainierWebsite = ticketWebstie;
-                 If mountRainierWebsite is not empty
-                            break
-                 else
-                            pageNumber = pageNumber + 1
-                 end
-          end
-          mountRainer = ticketWebsite
-          If mountRainer is not empty or mountRainer!=null
-                  traveller.chooseTicket -> ticket, ticketType, date, time, age : price
-                  response = price  
-                       If traveller.wantsToAddCoupon and mountRainer.acceptsCoupon
-                              traveller.typeInCouponCode -> CouponCode : authorized
-                                     If authorized is true
-                                              mountRainier.applyTheCoupon -> coupon : price
-                                     else
-                                     end 
-                       If traveller.wantToQuitThePurchase and purchaseIsNotFinished
-                              traveller.quitThePurchase -> status : logout
-                              response = logout                            
-                       end
-          Else
-          End
+	Traveller.searchTicketsOnline -> internet, questions : collection of ticketWebsites
+	pageNumber = 1;
+	price = Double.Max;
+	lowestPriceWebsite = null;
+
+	Loop
+	 If ticketWebsite is not empty or ticketWebsite!=null
+		 traveller.chooseTicket -> ticket, ticketType, date, time, age : price
+		 response = price 
+
+		 if (response < price)
+			price = response;
+			lowestPriceWebsite = ticketWebsite;
+		 end
+	 end
+	 pageNumber = pageNumber + 1
+	end
+	  
+	If traveller.wantsToAddCoupon and lowestPriceWebsite.acceptsCoupon
+	      traveller.typeInCouponCode -> CouponCode : authorized
+		     If authorized is true
+			      lowestPriceWebsite.applyTheCoupon -> coupon : price
+		     end 
+		     
+	If traveller.wantToQuitThePurchase and purchaseIsNotFinished
+	      traveller.quitThePurchase -> status : logout
+	      response = logout                            
+	end
+End
 Else
-traveller.browseInternetAfterAWhileBack                   
+	traveller.browseInternetAfterAWhileBack                   
  
 
 2. Organise a career fair(Suppose you are the organizer)
