@@ -1,3 +1,5 @@
+// good work
+// score 4 + extra credit 1
 import java.util.Date;
 import java.util.UUID;
 
