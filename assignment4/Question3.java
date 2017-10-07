@@ -9,8 +9,6 @@ class IpAddress {
 	public IpAddress(String ip) {
 		this.IpAddress = ip;
 		
-		// This will return an string array of octet,
-		// With the array length 4.
 		String[] octets = ip.split(".");
 
 		// Initializes array before using it.
@@ -22,13 +20,6 @@ class IpAddress {
 		this.octets[2] = Integer.parseInt(octets[2]);
 		this.octets[3] = Integer.parseInt(octets[3]);
 		this.IpAddress = ip;
-//	    	for(int i = 0; i < ip.length(); i++) {
-//	    		if (ip.charAt(i) == '.' ) {
-//	    			Octeti = ip.substring(0, i-1);
-//	    		}
-//	    		
-//	    		StrOcteti = IpAdress.substring(0, i);
-//	    	}
 	}
 	
 	public void setDottedDecimal(String IpAdress) {
