@@ -6,8 +6,6 @@ class Student {
 	String studentName;
 	int studentId;
 	
-	// Constructor. 
-	// Using a constructor to initialize studentName and studentId. 
 	public Student(String studentName, int studentId) {
 		this.studentName = studentName;
 		this.studentId = studentId;
@@ -39,8 +37,6 @@ class Course {
 	int numberOfStudents = 0;
 	ArrayList<Student> registeredStudents;
 	
-	// Constructor
-	// Each object of class Course is initialized using the title
 	public Course(String title) {
 		this.courseName = title;
 		
@@ -69,7 +65,6 @@ class Course {
 	}
 	
 	public boolean courseIsFull() {
-//		if numberOfStudent > 10;
 		if (numberOfStudents >= 10) {
 			return true;
 		} else {
