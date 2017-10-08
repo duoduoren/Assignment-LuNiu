@@ -19,7 +19,6 @@ class IpAddress {
 		this.octets[1] = Integer.parseInt(octets[1]);
 		this.octets[2] = Integer.parseInt(octets[2]);
 		this.octets[3] = Integer.parseInt(octets[3]);
-		this.IpAddress = ip;
 	}
 	
 	public void setDottedDecimal(String IpAdress) {
@@ -32,7 +31,7 @@ class IpAddress {
 	
 	// Gets the octet according to the position.
 	public int getOctet(int position) {
-		return this.octets[position];
+		return this.octets[position - 1];
 	}
 
 
