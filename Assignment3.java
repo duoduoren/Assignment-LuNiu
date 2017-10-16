@@ -1,9 +1,12 @@
+/* Awesome work
+ * Score 9.5 + extra credit 2; Total score 10
+ */ 
 import java.util.Scanner;
 
 public class Assignment3 {
 
 	//1. 
-	public class Book {
+	public class Book { // score 1
 	    int size;
 	    int price;
 	    String name;
@@ -32,12 +35,12 @@ public class Assignment3 {
 	 * get method is to return the value what it is supposed to get, while set method is to set the value,
 	 * no return needed.
 	 * 
-	 * book does not have superclass;
+	 * book does not have superclass; // superClass is Object class for every class in java
 	 * duplicate constructor is not allowed;
 	 */
 
 	//2.
-	class Clock {
+	class Clock { // score 1
 	    String time;
 	    
 	    public String getTime() {
@@ -55,14 +58,14 @@ public class Assignment3 {
 	*/
 
 	//3.
-	public String removeVowelsFromString(String input) {
+	public String removeVowelsFromString(String input) { // good, score 2
 		
 		return input.replaceAll("[aeiouAEIOU]", "");
 	}
 
 	//4.
-	private boolean checkIfTwoStringsareAnagrams(String s1, String s2) {
-		if (s1.length() != s2.length()) {
+	private boolean checkIfTwoStringsareAnagrams(String s1, String s2) { // score 1.5, good but you have to consider
+		if (s1.length() != s2.length()) {	// spaces and extra credits
 			return false;
 		}
 		
@@ -84,7 +87,7 @@ public class Assignment3 {
 	}
 	
 	//5.
-	public static double add(double x, double y) {
+	public static double add(double x, double y) { // score 4 + extra credit 2
 		double result = x + y;
 		return result;
 	}
@@ -193,7 +196,7 @@ public class Assignment3 {
 	}
 	
 	//5 Extra
-	public static void quadraticCalculator() {
+	public static void quadraticCalculator() { // extra credit 2
 		System.out.println("Enter the number");
 		Scanner in = new Scanner(System.in);
 		
@@ -216,7 +219,7 @@ public class Assignment3 {
 	public static double[] quadraticEquation(double a, double b, double c) throws Exception {
 		double x1 = (-b + Math.sqrt(b * b- 4 * a * c))/2*a;
 		double x2 = (-b - Math.sqrt(b * b- 4 * a * c))/2*a;
-		if ((b * b - 4 * a * c) < 0) {
+		if ((b * b - 4 * a * c) < 0) {	// check this statement first
 			throw new Exception("No Result");
 		}
 		
