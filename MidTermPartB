@@ -1,0 +1,70 @@
+public class Main {
+
+public static void main(String[] args) {
+    Main main = new Main();
+    System.out.print(main.arrangeCoins(3));
+}
+
+//Question 1.
+public int[] reverseEvenIndices(int[] nums) {
+    if (nums == null) {
+        return null;
+    }
+
+    int n = nums.length;
+    if (n <= 2) {
+        return nums;
+    }
+
+    int l = 0;
+    int r = n % 2 != 0 ? n - 1 : n -2;
+
+    while (l < r) {
+        int temp = nums[l];
+        nums[l] = nums[r];
+        nums[r] = temp;
+        l += 2;
+        r -= 2;
+    }
+
+    return nums;
+}
+
+//Question 2.
+public int arrangeCoins(int n){
+    int cur = 1, rem = n - 1;
+    while (rem >= cur + 1) {
+        ++cur;
+        rem -= cur;
+    }
+
+    return n == 0 ? 0 : cur;
+}
+
+//Question 3.
+public int minMoves(int[] nums){
+    if (nums.length == 0) return 0;
+    int min = nums[0];
+    for (int n : nums) min = Math.min(min, n);
+    int res = 0;
+    for (int n : nums) res += n - min;
+
+    return res;
+}
+
+//Question 4.
+public int countNumberOfPossibleWays(int m, int n, int x){
+    int[][] table = new int [n + 1][ x + 1];
+    for (int j = 1; j <= m && j <= x; j++) {
+        table[1][j] = 1;
+    }
+
+    for (int i = 2; i <= n; i++)
+        for (int j = 1; j <= x; j++)
+            for (int k = 1; k <= m && k < j; k++) {
+                table[i][j] += table[i - 1][j - k];
+            }
+
+    return table[n][x];
+}
+}
