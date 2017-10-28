@@ -113,7 +113,7 @@ class Cell{
                      however we asked for N*N, your code works fine for N*N
  */
 
-public ArrayList<Cell> findPath(int[][] maze){ // extra credit 5
+public ArrayList<Cell> findPath(int[][] maze){ // extra credit 10
     ArrayList<Cell> path = new ArrayList<Cell>();
     this.findPath(maze, 0, 0, maze.length, path);
 
