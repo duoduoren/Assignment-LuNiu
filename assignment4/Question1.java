@@ -1,8 +1,8 @@
 package assignment4;
 
-public class Question1 {
+public class Question1 { // score 1.8
 	String removeAllDashesFromString(String s) {
-		return s.replaceAll("-", "k");
+		return s.replaceAll("-", "k"); // we asked not to use these methods
 	}
 	//1.
 	private String formatStringToBeOfLengthK(String s, int k) throws Exception {
