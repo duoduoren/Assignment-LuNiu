@@ -2,7 +2,7 @@ package assignment4;
 
 import java.util.ArrayList;
 
-class Student {
+class Student { // score 1
 	String studentName;
 	int studentId;
 	
@@ -72,8 +72,8 @@ class Course {
 		}
 	}
 	
-	void registerStudent(Student student) {
-		if (!this.courseIsFull()) {
+	void registerStudent(Student student) { // you missed to update numberOfStudents after adding to course.
+		if (!this.courseIsFull()) {// you didn't check if same student is registering multiple times
 			this.registeredStudents.add(student);
 		}
 	}
