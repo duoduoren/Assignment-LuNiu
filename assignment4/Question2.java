@@ -1,6 +1,6 @@
 package assignment4;
 
-class Tool {
+class Tool { // score 1
 	protected int strength;
 	protected char type;
 	public void setStrength(int strength) {
@@ -15,8 +15,8 @@ class Tool {
 		return this.type;
 	}
 	
-	boolean fight(Tool tool) {
-		boolean res;
+	boolean fight(Tool tool) { // whats the point in having child classes if you include all the logic here.
+		boolean res; // if I want to create one more tool. your logic fails
 		int tempStrength = 0;
 		switch (tool.getType()) {
 			case 's':
