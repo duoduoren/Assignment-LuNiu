@@ -1,6 +1,6 @@
 package assignment4;
 
-public class Question6 {
+public class Question6 { // extra credit 2
 	
     public double findMedianSortedArrays(int A[], int B[]) {
         int len = A.length + B.length;
