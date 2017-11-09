@@ -1,6 +1,6 @@
 package assignment4;
 
-class IpAddress {
+class IpAddress { // score 2
 	int[] octets;
 	String dottedDecimal;
 	String IpAddress;
