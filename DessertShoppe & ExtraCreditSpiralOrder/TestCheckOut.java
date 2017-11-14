@@ -1,4 +1,6 @@
-
+/* Good Work
+ * Score 9+ extra credit 2; total score 10
+ */
 
 public class TestCheckOut {
 	
