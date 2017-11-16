@@ -1,10 +1,14 @@
+/* Good Work
+ * score 18.5
+ * you are not printing previously guessed letters. not displaying no. of guesses left, not displaying scaffold when guesses are correct
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Hangman {
-	ArrayList<String> words;
+	ArrayList<String> words; // access should be private
 	ArrayList<Character> correctList;
 	ArrayList<Character> wrongList;
 	Map<Character, Integer> wordMap;
