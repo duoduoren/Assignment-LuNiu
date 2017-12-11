@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-public class MyIndexOutOfBoundException extends Exception{
+public class MyIndexOutOfBoundException extends Exception{ // score 2
 	int lowerBound;
 	int upperBound;
 	int currentIndex;
