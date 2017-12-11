@@ -43,7 +43,7 @@ public class MyIndexOutOfBoundException extends Exception{ // score 2
 	}
 	
 	// 2
-    public static void parse(File file) throws IOException {
+    public static void parse(File file) throws IOException { // score 1
         RandomAccessFile input = null;
         String line = null;
         
