@@ -1,3 +1,7 @@
+/* Good work
+ * Score 9 + extra credit 0; Total score 10
+ * Unit tests for ATM class are missing
+ */
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +21,7 @@ class Transaction {
 }
 
 class User {
-	String name;
+	String name; // should be private
 	int age;
 	String address;
 	String phoneNumber;
