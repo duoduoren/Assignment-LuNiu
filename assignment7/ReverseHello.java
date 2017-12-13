@@ -1,7 +1,7 @@
 package assignment7;
 
 // 2.
-public class ReverseHello implements Runnable {
+public class ReverseHello implements Runnable { // score 2
 	
 	int num;
 	
