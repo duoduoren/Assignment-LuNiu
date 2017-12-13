@@ -2,7 +2,7 @@ package assignment7;
 
 // 4.
 public class PrintPascalTriangle {
-	public void printPascalTriangle(int n){
+	public void printPascalTriangle(int n){ // score 2
 	       int[] previousRow;
 	       int[] currentRow = {1};
 	       printArray(currentRow);
