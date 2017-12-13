@@ -1,7 +1,7 @@
 package assignment7;
 
 // 3.
-class Device {
+class Device { // score 2
 	
     public void startup() {  
     		System.out.println("Deveice started");
