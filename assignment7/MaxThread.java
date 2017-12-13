@@ -1,10 +1,10 @@
 package assignment7;
 
 //1.
-public class MaxThread extends Thread {
+public class MaxThread extends Thread {// score 1.5
 	private int lo, hi;
 	private int[] arr;
-	private int max;
+	private int max; //should be equal to Integer.MIN_VALUE
 	
 	public MaxThread(int[] arr, int lo, int hi) {
 		this.lo = lo;
