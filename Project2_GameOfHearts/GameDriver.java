@@ -1,3 +1,7 @@
+/* Need To improve
+ * Score 15
+ * your project compiles but gives null pointer exception and doesn't produce desired output
+ */
 import java.util.Scanner;
 
 public class GameDriver {
